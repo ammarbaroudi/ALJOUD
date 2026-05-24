@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3D1C0E;
+  --color-secondary: #6B3A2A;
+  --color-cream: #F5EDD8;
+  --color-light: #FAF6EE;
+  --font-cairo: 'Cairo', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Cairo', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #FAF6EE;
+  color: #3D1C0E;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Page transition classes used by Vue <Transition> */
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}

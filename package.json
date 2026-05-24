@@ -1,0 +1,14 @@
+{
+  "name": "aljoud-realestate",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Aljoud Real Estate fullstack monorepo (Vue 3 frontend + NestJS backend)",
+  "scripts": {
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run start:dev",
+    "dev": "concurrently -n frontend,backend -c cyan,magenta \"npm run dev:frontend\" \"npm run dev:backend\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
