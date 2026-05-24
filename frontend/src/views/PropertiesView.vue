@@ -132,7 +132,7 @@ const transitionName = computed(() => (store.loading ? '' : 'card-list'))
 .props-page {
   padding-top: 70px;
   min-height: 100vh;
-  background: #FAF6EE;
+  background: #FBF8F1;
   font-family: 'Cairo', sans-serif;
 }
 
@@ -144,9 +144,9 @@ const transitionName = computed(() => (store.loading ? '' : 'card-list'))
 
 /* ── Header ── */
 .page-header {
-  background: #F5EDD8;
-  border-bottom: 1px solid #d6c9aa;
-  padding: 3rem 0 2.5rem;
+  background: var(--grad-cream);
+  border-bottom: 1px solid rgba(201,162,75,0.28);
+  padding: 3.25rem 0 2.75rem;
   text-align: center;
 }
 
@@ -168,9 +168,10 @@ const transitionName = computed(() => (store.loading ? '' : 'card-list'))
   position: sticky;
   top: 70px;
   z-index: 50;
-  background: #FAF6EE;
-  border-bottom: 1px solid #e0d5be;
-  padding: 0.75rem 0;
+  background: rgba(251, 248, 241, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(201,162,75,0.2);
+  padding: 0.85rem 0;
 }
 
 .filter-bar {
@@ -186,9 +187,9 @@ const transitionName = computed(() => (store.loading ? '' : 'card-list'))
 .filter-btn {
   position: relative;
   flex-shrink: 0;
-  padding: 0.45rem 1.25rem;
+  padding: 0.5rem 1.35rem;
   border-radius: 999px;
-  border: 1.5px solid #c9b99a;
+  border: 1.5px solid rgba(201,162,75,0.4);
   background: transparent;
   color: #6B3A2A;
   font-family: 'Cairo', sans-serif;
@@ -198,21 +199,23 @@ const transitionName = computed(() => (store.loading ? '' : 'card-list'))
   transition: background 0.2s, color 0.2s, border-color 0.2s;
   white-space: nowrap;
 }
+.filter-btn:hover { border-color: #A6802F; color: #A6802F; }
 
-.filter-btn--active {
-  background: #3D1C0E;
-  color: #F5EDD8;
-  border-color: #3D1C0E;
+.filter-btn--active,
+.filter-btn--active:hover {
+  background: #16243F;
+  color: #ECD4A0;
+  border-color: #16243F;
 }
 
 .filter-underline {
   position: absolute;
-  bottom: -10px;
+  bottom: -11px;
   left: 50%;
   transform: translateX(-50%);
   width: 6px;
   height: 6px;
-  background: #3D1C0E;
+  background: #A6802F;
   border-radius: 50%;
   animation: dot-in 0.2s ease;
 }

@@ -222,7 +222,7 @@ function onSubmit() {
   width: 100%;
   box-sizing: border-box;
 }
-.input:focus { border-color: #3D1C0E; }
+.input:focus { border-color: #C9A24B; box-shadow: 0 0 0 3px rgba(201,162,75,0.14); }
 .textarea { resize: vertical; min-height: 100px; }
 .select { cursor: pointer; }
 
@@ -239,7 +239,7 @@ function onSubmit() {
 .checkbox {
   width: 18px;
   height: 18px;
-  accent-color: #3D1C0E;
+  accent-color: #A6802F;
   cursor: pointer;
 }
 
@@ -298,8 +298,8 @@ function onSubmit() {
   transition: border-color 0.2s, background 0.2s;
 }
 .dropzone--active {
-  border-color: #3D1C0E;
-  background: #f0e8d5;
+  border-color: #C9A24B;
+  background: #FBF3DF;
 }
 .dropzone-text {
   font-size: 0.9rem;
@@ -309,10 +309,10 @@ function onSubmit() {
 
 /* Submit */
 .submit-btn {
-  padding: 0.75rem;
-  background: #3D1C0E;
-  color: #F5EDD8;
-  border: none;
+  padding: 0.8rem;
+  background: #16243F;
+  color: #ECD4A0;
+  border: 1.5px solid transparent;
   border-radius: 8px;
   font-family: 'Cairo', sans-serif;
   font-size: 1rem;
@@ -322,10 +322,10 @@ function onSubmit() {
   align-items: center;
   justify-content: center;
   min-height: 46px;
-  transition: background 0.2s;
+  transition: border-color 0.2s, background 0.2s;
   margin-top: 0.5rem;
 }
-.submit-btn:hover:not(:disabled) { background: #6B3A2A; }
+.submit-btn:hover:not(:disabled) { background: #1E3357; border-color: #C9A24B; }
 .submit-btn:disabled { opacity: 0.6; cursor: not-allowed; }
 
 .spinner {

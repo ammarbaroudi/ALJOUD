@@ -289,7 +289,7 @@ const statusConfig: Record<string, { cls: string; icon: string }> = {
 .db-sidebar {
   width: 220px;
   min-height: 100vh;
-  background: #2C1208;
+  background: var(--grad-navy);
   display: flex;
   flex-direction: column;
   padding: 1.5rem 0;
@@ -304,7 +304,7 @@ const statusConfig: Record<string, { cls: string; icon: string }> = {
   align-items: center;
   justify-content: center;
   padding: 0 1.25rem 1.5rem;
-  border-bottom: 1px solid rgba(245,237,216,0.1);
+  border-bottom: 1px solid rgba(201,162,75,0.2);
   margin-bottom: 1.25rem;
 }
 .sidebar-logo-img {
@@ -319,7 +319,7 @@ const statusConfig: Record<string, { cls: string; icon: string }> = {
   align-items: center;
 }
 .sl-main { font-size: 1.1rem; font-weight: 800; color: #F5EDD8; letter-spacing: 0.08em; }
-.sl-sub  { font-size: 0.52rem; font-weight: 600; letter-spacing: 0.2em; color: #9a8a72; }
+.sl-sub  { font-size: 0.52rem; font-weight: 600; letter-spacing: 0.2em; color: #DDBB6E; }
 
 .sidebar-nav {
   display: flex;
@@ -346,10 +346,11 @@ const statusConfig: Record<string, { cls: string; icon: string }> = {
   width: 100%;
   transition: background 0.2s, color 0.2s;
 }
-.sidebar-item:hover { background: rgba(245,237,216,0.08); color: #F5EDD8; }
+.sidebar-item:hover { background: rgba(255,255,255,0.06); color: #F6EEDC; }
 .sidebar-item--active {
-  background: rgba(245,237,216,0.12);
-  color: #F5EDD8;
+  background: rgba(201,162,75,0.16);
+  color: #ECD4A0;
+  box-shadow: inset 3px 0 0 #C9A24B;
 }
 .sidebar-icon { font-size: 1.15rem; }
 
@@ -407,18 +408,18 @@ const statusConfig: Record<string, { cls: string; icon: string }> = {
   align-items: center;
   gap: 0.4rem;
   padding: 0.6rem 1.4rem;
-  background: #3D1C0E;
-  color: #F5EDD8;
+  background: var(--grad-gold);
+  color: #2C1208;
   border: none;
   border-radius: 10px;
   font-family: 'Cairo', sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
-  box-shadow: 0 4px 12px rgba(61,28,14,0.25);
+  transition: filter 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: var(--shadow-gold);
 }
-.btn-add:hover { background: #5a2a18; transform: translateY(-1px); }
+.btn-add:hover { filter: brightness(1.05); transform: translateY(-1px); }
 .btn-add-icon { font-size: 1.1rem; }
 
 /* ── Stats ── */
@@ -448,7 +449,7 @@ const statusConfig: Record<string, { cls: string; icon: string }> = {
   font-size: 1.3rem;
   flex-shrink: 0;
 }
-.stat-icon-wrap--total    { background: rgba(61,28,14,0.1);  color: #3D1C0E; }
+.stat-icon-wrap--total    { background: rgba(201,162,75,0.15);  color: #A6802F; }
 .stat-icon-wrap--sale     { background: rgba(16,185,129,0.1); color: #059669; }
 .stat-icon-wrap--rent     { background: rgba(59,130,246,0.1); color: #2563eb; }
 .stat-icon-wrap--featured { background: rgba(212,160,40,0.12); color: #b7820e; }
@@ -609,7 +610,7 @@ const statusConfig: Record<string, { cls: string; icon: string }> = {
 .badge--sold { background: #f3f4f6; color: #6b7280; }
 
 /* Price cell */
-.td-price { font-weight: 700; color: #3D1C0E; white-space: nowrap; }
+.td-price { font-weight: 700; color: #A6802F; white-space: nowrap; }
 
 /* Toggle */
 .td-center { text-align: center; }
@@ -624,7 +625,7 @@ const statusConfig: Record<string, { cls: string; icon: string }> = {
   transition: background 0.25s;
   padding: 0;
 }
-.toggle--on { background: #3D1C0E; }
+.toggle--on { background: #A6802F; }
 .toggle:disabled { opacity: 0.5; cursor: not-allowed; }
 .toggle-knob {
   position: absolute;

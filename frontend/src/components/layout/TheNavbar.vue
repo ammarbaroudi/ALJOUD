@@ -77,16 +77,17 @@ const links = [
   top: 0;
   inset-inline: 0;
   z-index: 100;
-  background-color: rgba(250, 246, 238, 0.95);
-  backdrop-filter: blur(12px);
+  background-color: rgba(251, 248, 241, 0.85);
+  backdrop-filter: blur(14px) saturate(140%);
   border-bottom: 1px solid transparent;
   font-family: 'Cairo', sans-serif;
-  transition: border-color 0.3s, box-shadow 0.3s;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
 
 .navbar--scrolled {
-  border-bottom-color: #d6c9aa;
-  box-shadow: 0 4px 24px rgba(61, 28, 14, 0.08);
+  background-color: rgba(251, 248, 241, 0.96);
+  border-bottom-color: rgba(201, 162, 75, 0.35);
+  box-shadow: 0 6px 28px rgba(44, 18, 8, 0.07);
 }
 
 .navbar-inner {
@@ -106,10 +107,12 @@ const links = [
 }
 
 .logo-img {
-  height: 48px;
+  height: 50px;
   width: auto;
   object-fit: contain;
+  transition: transform 0.3s ease;
 }
+.logo:hover .logo-img { transform: scale(1.04); }
 
 .logo-fallback {
   display: none;
@@ -153,12 +156,12 @@ const links = [
   bottom: -2px;
   right: 0;
   left: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #6B3A2A, #3D1C0E);
+  height: 2.5px;
+  background: linear-gradient(90deg, #DDBB6E, #A6802F);
   border-radius: 2px;
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.25s ease;
+  transition: transform 0.28s ease;
 }
 
 .nav-link:hover { color: #3D1C0E; }

@@ -114,7 +114,7 @@ async function submit() {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(145deg, #F5EDD8 0%, #EDE0C4 60%, #E0CBA8 100%);
+  background: var(--grad-navy);
   font-family: 'Cairo', sans-serif;
   padding: 1.5rem;
   position: relative;
@@ -132,29 +132,30 @@ async function submit() {
   filter: blur(60px);
 }
 .bg-blob--1 {
-  width: 400px;
-  height: 400px;
-  background: rgba(107,58,42,0.1);
-  top: -100px;
-  right: -100px;
+  width: 420px;
+  height: 420px;
+  background: rgba(201,162,75,0.18);
+  top: -120px;
+  right: -120px;
 }
 .bg-blob--2 {
-  width: 300px;
-  height: 300px;
-  background: rgba(61,28,14,0.08);
-  bottom: -80px;
-  left: -80px;
+  width: 320px;
+  height: 320px;
+  background: rgba(42,68,112,0.45);
+  bottom: -90px;
+  left: -90px;
 }
 
 .login-card {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(201,185,154,0.5);
+  border: 1px solid rgba(255,255,255,0.6);
+  border-top: 3px solid #C9A24B;
   border-radius: 24px;
   padding: 2.5rem 2.25rem;
   width: 100%;
   max-width: 420px;
-  box-shadow: 0 20px 60px rgba(61, 28, 14, 0.15), 0 4px 16px rgba(61,28,14,0.08);
+  box-shadow: 0 30px 70px rgba(16, 27, 48, 0.45);
   position: relative;
   z-index: 1;
 }
@@ -225,7 +226,7 @@ async function submit() {
   font-weight: 600;
   color: #3D1C0E;
 }
-.label-icon { font-size: 1rem; color: #6B3A2A; }
+.label-icon { font-size: 1rem; color: #A6802F; }
 
 .input {
   padding: 0.75rem 1rem;
@@ -241,9 +242,9 @@ async function submit() {
   box-sizing: border-box;
 }
 .input:focus {
-  border-color: #3D1C0E;
+  border-color: #C9A24B;
   background: #fff;
-  box-shadow: 0 0 0 3px rgba(61,28,14,0.08);
+  box-shadow: 0 0 0 3px rgba(201,162,75,0.18);
 }
 
 .input-wrap {
@@ -265,7 +266,7 @@ async function submit() {
   padding: 0;
   transition: color 0.2s;
 }
-.pass-toggle:hover { color: #3D1C0E; }
+.pass-toggle:hover { color: #A6802F; }
 
 .error-msg {
   display: flex;
@@ -283,10 +284,10 @@ async function submit() {
 
 .submit-btn {
   margin-top: 0.5rem;
-  padding: 0.85rem;
-  background: linear-gradient(135deg, #3D1C0E, #5a2a18);
-  color: #F5EDD8;
-  border: none;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #16243F, #101B30);
+  color: #ECD4A0;
+  border: 1.5px solid transparent;
   border-radius: 12px;
   font-family: 'Cairo', sans-serif;
   font-size: 1rem;
@@ -298,20 +299,20 @@ async function submit() {
   gap: 0.5rem;
   min-height: 48px;
   transition: all 0.25s;
-  box-shadow: 0 4px 16px rgba(61,28,14,0.3);
+  box-shadow: 0 6px 18px rgba(16,27,48,0.3);
 }
 .submit-btn:hover:not(:disabled) {
-  background: linear-gradient(135deg, #5a2a18, #3D1C0E);
+  border-color: #C9A24B;
   transform: translateY(-1px);
-  box-shadow: 0 8px 24px rgba(61,28,14,0.35);
+  box-shadow: 0 10px 26px rgba(16,27,48,0.4);
 }
 .submit-btn:disabled { opacity: 0.65; cursor: not-allowed; }
 
 .spinner {
   width: 20px;
   height: 20px;
-  border: 3px solid rgba(245,237,216,0.35);
-  border-top-color: #F5EDD8;
+  border: 3px solid rgba(236,212,160,0.3);
+  border-top-color: #ECD4A0;
   border-radius: 50%;
   animation: spin 0.7s linear infinite;
 }

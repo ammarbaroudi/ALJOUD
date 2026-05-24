@@ -62,9 +62,11 @@ import { Icon } from '@iconify/vue'
 
 <style scoped>
 .footer {
-  background: #2C1208;
+  background: var(--grad-navy);
   font-family: 'Cairo', sans-serif;
-  color: #d6c9aa;
+  color: #c7d3e6;
+  border-top: 3px solid transparent;
+  border-image: var(--grad-gold) 1;
 }
 
 .footer-inner {
@@ -78,7 +80,7 @@ import { Icon } from '@iconify/vue'
   grid-template-columns: 2fr 1fr 1fr;
   gap: 3rem;
   padding-bottom: 3rem;
-  border-bottom: 1px solid rgba(245,237,216,0.1);
+  border-bottom: 1px solid rgba(201,162,75,0.18);
 }
 
 .footer-brand {}
@@ -97,12 +99,12 @@ import { Icon } from '@iconify/vue'
   display: none;
   flex-direction: column;
 }
-.brand-main { font-size: 1.2rem; font-weight: 800; color: #F5EDD8; letter-spacing: 0.08em; }
-.brand-sub  { font-size: 0.55rem; font-weight: 600; letter-spacing: 0.2em; color: #9a8a72; }
+.brand-main { font-size: 1.2rem; font-weight: 800; color: #F6EEDC; letter-spacing: 0.08em; }
+.brand-sub  { font-size: 0.55rem; font-weight: 600; letter-spacing: 0.2em; color: #DDBB6E; }
 
 .brand-desc {
   font-size: 0.88rem;
-  color: rgba(214,201,170,0.75);
+  color: rgba(199,211,230,0.72);
   line-height: 1.8;
   margin: 0;
   max-width: 300px;
@@ -111,7 +113,7 @@ import { Icon } from '@iconify/vue'
 .footer-heading {
   font-size: 0.8rem;
   font-weight: 700;
-  color: #F5EDD8;
+  color: #DDBB6E;
   margin: 0 0 1.1rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -132,20 +134,20 @@ import { Icon } from '@iconify/vue'
   align-items: center;
   gap: 0.3rem;
   font-size: 0.88rem;
-  color: rgba(214,201,170,0.75);
+  color: rgba(199,211,230,0.72);
   text-decoration: none;
   transition: color 0.2s, gap 0.2s;
 }
-.footer-link:hover { color: #F5EDD8; gap: 0.5rem; }
-.link-arrow { font-size: 0.9rem; flex-shrink: 0; }
+.footer-link:hover { color: #DDBB6E; gap: 0.5rem; }
+.link-arrow { font-size: 0.9rem; flex-shrink: 0; color: #A6802F; }
 
 .contact-item {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.contact-icon { font-size: 1rem; color: #9a8a72; flex-shrink: 0; }
-.footer-text { font-size: 0.88rem; color: rgba(214,201,170,0.75); }
+.contact-icon { font-size: 1rem; color: #DDBB6E; flex-shrink: 0; }
+.footer-text { font-size: 0.88rem; color: rgba(199,211,230,0.72); }
 
 .footer-bottom {
   padding: 1.5rem 0;
@@ -153,7 +155,7 @@ import { Icon } from '@iconify/vue'
 }
 .copyright {
   font-size: 0.8rem;
-  color: rgba(214,201,170,0.45);
+  color: rgba(199,211,230,0.45);
   margin: 0;
 }
 

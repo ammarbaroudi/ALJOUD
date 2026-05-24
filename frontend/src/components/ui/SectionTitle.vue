@@ -37,8 +37,8 @@ useMotion(el, {
 .underline {
   width: 56px;
   height: 4px;
-  background-color: #6B3A2A;
-  border-radius: 2px;
+  background: var(--grad-gold);
+  border-radius: 999px;
   margin: 0 auto 0.9rem;
 }
 

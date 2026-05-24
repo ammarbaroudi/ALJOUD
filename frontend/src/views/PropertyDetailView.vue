@@ -211,7 +211,7 @@ useMotion(contactRef, {
   padding-top: 72px;
   padding-bottom: 5rem;
   min-height: 100vh;
-  background: #FDFAF4;
+  background: #FBF8F1;
   font-family: 'Cairo', sans-serif;
 }
 
@@ -269,7 +269,7 @@ useMotion(contactRef, {
   width: 48px;
   height: 48px;
   border: 4px solid #e0d5be;
-  border-top-color: #3D1C0E;
+  border-top-color: #A6802F;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -368,9 +368,9 @@ useMotion(contactRef, {
   border-radius: 6px;
 }
 .prop-price {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 800;
-  color: #2C1208;
+  color: #A6802F;
 }
 .prop-price--na { font-size: 1rem; color: #9a8a72; font-weight: 600; }
 
@@ -391,7 +391,7 @@ useMotion(contactRef, {
   color: #2C1208;
   margin: 0 0 0.75rem;
 }
-.desc-icon { font-size: 1.2rem; color: #6B3A2A; }
+.desc-icon { font-size: 1.2rem; color: #A6802F; }
 .desc-body {
   font-size: 0.95rem;
   color: #4a2515;
@@ -424,7 +424,8 @@ useMotion(contactRef, {
 /* Contact card */
 .contact-card {
   background: #fff;
-  border: 1px solid #ede4d0;
+  border: 1px solid #ECE0C8;
+  border-top: 3px solid #C9A24B;
   border-radius: 16px;
   padding: 1.5rem;
   display: flex;
@@ -432,7 +433,7 @@ useMotion(contactRef, {
   gap: 0.85rem;
   position: sticky;
   top: 90px;
-  box-shadow: 0 8px 32px rgba(61,28,14,0.08);
+  box-shadow: 0 12px 36px rgba(44,18,8,0.10);
 }
 
 .contact-header {
@@ -495,9 +496,9 @@ useMotion(contactRef, {
 .cbtn-icon { font-size: 1.1rem; }
 
 .contact-btn--phone {
-  background: #3D1C0E;
-  color: #F5EDD8;
-  box-shadow: 0 4px 12px rgba(61,28,14,0.2);
+  background: #16243F;
+  color: #ECD4A0;
+  box-shadow: 0 4px 12px rgba(16,27,48,0.22);
 }
 .contact-btn--whatsapp {
   background: #25D366;
@@ -527,8 +528,8 @@ useMotion(contactRef, {
   transition: all 0.2s;
 }
 .btn:hover { transform: translateY(-2px); }
-.btn--primary { background: #3D1C0E; color: #F5EDD8; box-shadow: 0 4px 12px rgba(61,28,14,0.2); }
-.btn--primary:hover { background: #5a2a18; }
+.btn--primary { background: #16243F; color: #ECD4A0; box-shadow: 0 4px 12px rgba(16,27,48,0.22); }
+.btn--primary:hover { background: #1E3357; }
 
 /* Responsive */
 @media (max-width: 768px) {

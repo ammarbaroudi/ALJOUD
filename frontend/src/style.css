@@ -1,11 +1,49 @@
 @import "tailwindcss";
 
 @theme {
+  /* ── Brand base (from logo) ── */
+  --color-brown-900: #2C1208;
+  --color-brown-800: #3D1C0E;
+  --color-brown-700: #5A2A18;
+  --color-brown-600: #6B3A2A;
+  --color-brown-500: #8A6A4A;
+  --color-brown-300: #C9B99A;
+
+  /* ── Navy (deep accent for dark sections) ── */
+  --color-navy-900: #101B30;
+  --color-navy-800: #16243F;
+  --color-navy-700: #1E3357;
+  --color-navy-600: #2A4470;
+
+  /* ── Gold (premium accent) ── */
+  --color-gold-600: #A6802F;
+  --color-gold-500: #C9A24B;
+  --color-gold-400: #DDBB6E;
+  --color-gold-300: #ECD4A0;
+
+  /* ── Warm neutrals (backgrounds) ── */
+  --color-cream: #F6EEDC;
+  --color-sand: #EFE5CF;
+  --color-light: #FBF8F1;
+  --color-paper: #FFFFFF;
+
+  /* ── Semantic aliases ── */
   --color-primary: #3D1C0E;
   --color-secondary: #6B3A2A;
-  --color-cream: #F5EDD8;
-  --color-light: #FAF6EE;
+  --color-accent: #C9A24B;
+  --color-ink: #2C1208;
+
   --font-cairo: 'Cairo', sans-serif;
+
+  /* ── Shared gradients ── */
+  --grad-gold: linear-gradient(135deg, #DDBB6E 0%, #C9A24B 45%, #A6802F 100%);
+  --grad-navy: linear-gradient(160deg, #1E3357 0%, #16243F 55%, #101B30 100%);
+  --grad-cream: linear-gradient(145deg, #F6EEDC 0%, #EFE5CF 45%, #E7D9BD 100%);
+
+  /* ── Shadows ── */
+  --shadow-soft: 0 4px 16px rgba(44, 18, 8, 0.08);
+  --shadow-card: 0 14px 40px rgba(44, 18, 8, 0.12);
+  --shadow-gold: 0 8px 24px rgba(166, 128, 47, 0.28);
 }
 
 *,
@@ -21,10 +59,34 @@ html {
 
 body {
   margin: 0;
-  background-color: #FAF6EE;
-  color: #3D1C0E;
+  background-color: #FBF8F1;
+  color: #2C1208;
   -webkit-font-smoothing: antialiased;
 }
+
+/* ── Reusable gold-accent underline ── */
+.accent-bar {
+  width: 56px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--grad-gold);
+}
+
+/* Custom selection */
+::selection {
+  background: rgba(201, 162, 75, 0.3);
+  color: #2C1208;
+}
+
+/* Refined scrollbar */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #EFE5CF; }
+::-webkit-scrollbar-thumb {
+  background: #C9B99A;
+  border-radius: 999px;
+  border: 2px solid #EFE5CF;
+}
+::-webkit-scrollbar-thumb:hover { background: #A6802F; }
 
 /* Page transition classes used by Vue <Transition> */
 .page-enter-active,

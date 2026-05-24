@@ -67,12 +67,13 @@ function navigate() {
 
 <style scoped>
 .card {
+  position: relative;
   background: #fff;
-  border: 1px solid #ede4d0;
-  border-radius: 16px;
+  border: 1px solid #ECE0C8;
+  border-radius: 18px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
   font-family: 'Cairo', sans-serif;
   height: 100%;
   display: flex;
@@ -80,7 +81,8 @@ function navigate() {
 }
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(61, 28, 14, 0.18);
+  border-color: rgba(201, 162, 75, 0.5);
+  box-shadow: 0 18px 44px rgba(44, 18, 8, 0.16);
 }
 
 /* Image */
@@ -130,9 +132,9 @@ function navigate() {
   backdrop-filter: blur(4px);
   z-index: 1;
 }
-.badge--sale { background: rgba(61,28,14,0.9);  color: #F5EDD8; }
-.badge--rent { background: rgba(107,58,42,0.9); color: #F5EDD8; }
-.badge--sold { background: rgba(120,120,120,0.85); color: #fff; }
+.badge--sale { background: rgba(22,36,63,0.92);  color: #ECD4A0; }
+.badge--rent { background: rgba(61,28,14,0.92); color: #ECD4A0; }
+.badge--sold { background: rgba(90,90,90,0.88); color: #fff; }
 
 /* Featured badge */
 .featured-badge {
@@ -142,13 +144,13 @@ function navigate() {
   display: flex;
   align-items: center;
   gap: 0.25rem;
-  background: rgba(212, 160, 40, 0.92);
-  color: #fff;
+  background: linear-gradient(135deg, #DDBB6E, #A6802F);
+  color: #2C1208;
   font-size: 0.73rem;
-  font-weight: 700;
-  padding: 0.22rem 0.7rem;
+  font-weight: 800;
+  padding: 0.24rem 0.72rem;
   border-radius: 999px;
-  backdrop-filter: blur(4px);
+  box-shadow: 0 3px 10px rgba(166,128,47,0.4);
   z-index: 1;
 }
 
@@ -192,9 +194,9 @@ function navigate() {
 }
 
 .card-price {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 800;
-  color: #3D1C0E;
+  color: #A6802F;
   margin: 0;
 }
 .card-price--na { color: #9a8a72; font-weight: 600; font-size: 0.85rem; }
@@ -205,9 +207,10 @@ function navigate() {
   gap: 0.25rem;
   font-size: 0.82rem;
   font-weight: 700;
-  color: #6B3A2A;
-  transition: gap 0.2s;
+  color: #16243F;
+  transition: gap 0.2s, color 0.2s;
 }
+.card:hover .card-cta { color: #A6802F; }
 .card:hover .card-cta { gap: 0.5rem; }
 .cta-arrow { font-size: 1rem; transition: transform 0.2s; }
 .card:hover .cta-arrow { transform: translateX(-3px); }
