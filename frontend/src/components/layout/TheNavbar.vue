@@ -1,8 +1,16 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import { RouterLink } from 'vue-router'
 
 const menuOpen = ref(false)
+const scrolled = ref(false)
+
+function onScroll() {
+  scrolled.value = window.scrollY > 20
+}
+
+onMounted(() => window.addEventListener('scroll', onScroll))
+onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 const links = [
   { to: '/', label: 'الرئيسية' },
@@ -13,17 +21,15 @@ const links = [
 </script>
 
 <template>
-  <header
-    v-motion
-    :initial="{ opacity: 0, y: -20 }"
-    :enter="{ opacity: 1, y: 0, transition: { duration: 500 } }"
-    class="navbar"
-  >
+  <header class="navbar" :class="{ 'navbar--scrolled': scrolled }">
     <div class="navbar-inner">
       <!-- Logo -->
       <RouterLink to="/" class="logo">
-        <span class="logo-main">ALJOUD</span>
-        <span class="logo-sub">REAL ESTATE</span>
+        <img src="/logo.png" alt="الجود للعقارات" class="logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+        <div class="logo-fallback">
+          <span class="logo-main">ALJOUD</span>
+          <span class="logo-sub">REAL ESTATE</span>
+        </div>
       </RouterLink>
 
       <!-- Desktop nav -->
@@ -48,24 +54,20 @@ const links = [
     </div>
 
     <!-- Mobile drawer -->
-    <div
-      v-if="menuOpen"
-      v-motion
-      :initial="{ opacity: 0, y: -16 }"
-      :enter="{ opacity: 1, y: 0, transition: { duration: 250 } }"
-      class="mobile-drawer"
-    >
-      <RouterLink
-        v-for="link in links"
-        :key="link.to"
-        :to="link.to"
-        class="mobile-link"
-        active-class="mobile-link--active"
-        @click="menuOpen = false"
-      >
-        {{ link.label }}
-      </RouterLink>
-    </div>
+    <Transition name="drawer">
+      <div v-if="menuOpen" class="mobile-drawer">
+        <RouterLink
+          v-for="link in links"
+          :key="link.to"
+          :to="link.to"
+          class="mobile-link"
+          active-class="mobile-link--active"
+          @click="menuOpen = false"
+        >
+          {{ link.label }}
+        </RouterLink>
+      </div>
+    </Transition>
   </header>
 </template>
 
@@ -75,16 +77,23 @@ const links = [
   top: 0;
   inset-inline: 0;
   z-index: 100;
-  background-color: #F5EDD8;
-  border-bottom: 1px solid #d6c9aa;
+  background-color: rgba(250, 246, 238, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
   font-family: 'Cairo', sans-serif;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.navbar--scrolled {
+  border-bottom-color: #d6c9aa;
+  box-shadow: 0 4px 24px rgba(61, 28, 14, 0.08);
 }
 
 .navbar-inner {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 1.5rem;
-  height: 70px;
+  height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -92,37 +101,52 @@ const links = [
 
 .logo {
   display: flex;
-  flex-direction: column;
-  line-height: 1.1;
+  align-items: center;
   text-decoration: none;
 }
+
+.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-fallback {
+  display: none;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
 .logo-main {
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   font-weight: 800;
   letter-spacing: 0.06em;
   color: #3D1C0E;
 }
+
 .logo-sub {
-  font-size: 0.6rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
   color: #6B3A2A;
 }
 
 .desktop-nav {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
+  align-items: center;
 }
 
 .nav-link {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #3D1C0E;
+  color: #4a2515;
   text-decoration: none;
   position: relative;
-  padding-bottom: 2px;
+  padding-bottom: 3px;
   transition: color 0.2s;
 }
+
 .nav-link::after {
   content: '';
   position: absolute;
@@ -130,15 +154,19 @@ const links = [
   right: 0;
   left: 0;
   height: 2px;
-  background-color: #3D1C0E;
+  background: linear-gradient(90deg, #6B3A2A, #3D1C0E);
+  border-radius: 2px;
   transform: scaleX(0);
   transform-origin: right;
   transition: transform 0.25s ease;
 }
+
+.nav-link:hover { color: #3D1C0E; }
 .nav-link:hover::after,
 .nav-link--active::after {
   transform: scaleX(1);
 }
+.nav-link--active { color: #3D1C0E; font-weight: 700; }
 
 /* Hamburger */
 .hamburger {
@@ -148,56 +176,56 @@ const links = [
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
+  border-radius: 6px;
+  transition: background 0.2s;
 }
+.hamburger:hover { background: rgba(61, 28, 14, 0.07); }
+
 .hamburger-line {
   display: block;
   width: 24px;
   height: 2px;
   background-color: #3D1C0E;
   border-radius: 2px;
-  transition: transform 0.2s, opacity 0.2s;
+  transition: transform 0.25s, opacity 0.25s;
 }
-.hamburger-line:nth-child(1).open {
-  transform: translateY(7px) rotate(45deg);
-}
-.hamburger-line:nth-child(2).open {
-  opacity: 0;
-}
-.hamburger-line:nth-child(3).open {
-  transform: translateY(-7px) rotate(-45deg);
-}
+.hamburger-line:nth-child(1).open { transform: translateY(7px) rotate(45deg); }
+.hamburger-line:nth-child(2).open { opacity: 0; }
+.hamburger-line:nth-child(3).open { transform: translateY(-7px) rotate(-45deg); }
 
 /* Mobile drawer */
 .mobile-drawer {
   display: flex;
   flex-direction: column;
-  background-color: #F5EDD8;
-  border-top: 1px solid #d6c9aa;
-  padding: 0.75rem 1.5rem 1rem;
-  gap: 0.25rem;
+  background: rgba(250, 246, 238, 0.98);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid #e0d5be;
+  padding: 0.5rem 1.5rem 1rem;
+  gap: 0.1rem;
 }
+
 .mobile-link {
   font-size: 1rem;
   font-weight: 600;
   color: #3D1C0E;
   text-decoration: none;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid #e8dfc4;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #ede4d0;
+  transition: color 0.2s, padding-right 0.2s;
 }
-.mobile-link:last-child {
-  border-bottom: none;
-}
-.mobile-link--active {
-  color: #6B3A2A;
-}
+.mobile-link:last-child { border-bottom: none; }
+.mobile-link:hover { padding-right: 0.4rem; color: #6B3A2A; }
+.mobile-link--active { color: #6B3A2A; font-weight: 700; }
+
+/* Drawer transition */
+.drawer-enter-active,
+.drawer-leave-active { transition: opacity 0.2s, transform 0.2s; }
+.drawer-enter-from,
+.drawer-leave-to { opacity: 0; transform: translateY(-8px); }
 
 @media (max-width: 768px) {
-  .desktop-nav {
-    display: none;
-  }
-  .hamburger {
-    display: flex;
-  }
+  .desktop-nav { display: none; }
+  .hamburger { display: flex; }
 }
 </style>
